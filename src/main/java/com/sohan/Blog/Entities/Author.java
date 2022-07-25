@@ -3,9 +3,11 @@ package com.sohan.Blog.Entities;
 import com.sohan.Blog.Dto.AuthorDto;
 import lombok.*;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "Author")
+@Table(name = "author")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -19,6 +21,9 @@ public class Author {
     private String username;
     private String email;
     private String address;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "post_id")
+    private List<Post> posts = new ArrayList<>();
 
     public static Author from(AuthorDto authorDto){
         Author author = new Author();
