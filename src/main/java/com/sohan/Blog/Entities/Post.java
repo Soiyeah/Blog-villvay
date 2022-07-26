@@ -1,5 +1,6 @@
 package com.sohan.Blog.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sohan.Blog.Dto.AuthorDto;
 import com.sohan.Blog.Dto.PostDto;
 import lombok.*;
@@ -16,11 +17,11 @@ import java.util.Date;
 public class Post {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
     private String body;
     @ManyToOne
-    @JoinColumn(name="author_id")
     private Author author;
     private Date createdOn;
     private Date modifiedOn;
@@ -34,6 +35,11 @@ public class Post {
         post.setCreatedOn(postDto.getCreatedOn());
         post.setModifiedOn(postDto.getModifiedOn());
         return post;
+    }
+
+    @JsonBackReference
+    public Author getAuthor(){
+        return author;
     }
 
 }

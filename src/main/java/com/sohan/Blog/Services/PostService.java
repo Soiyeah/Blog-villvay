@@ -6,6 +6,7 @@ import com.sohan.Blog.Repositories.AuthorRepository;
 import com.sohan.Blog.Repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class PostService {
@@ -31,9 +32,15 @@ public class PostService {
         return postRepository.save(post);
     }
 
-//    public Author updateAuthor(Long id, Author author) {
-//
-//    }
+    @Transactional
+    public Post editPost(Long id, Post post) {
+        Post postToEdit = getPost(id);
+        postToEdit.setTitle(post.getTitle());
+        postToEdit.setBody(post.getBody());
+        postToEdit.setCreatedOn(post.getCreatedOn());
+        postToEdit.setModifiedOn(post.getCreatedOn());
+        return postToEdit;
+    }
 
     public Post deletePost(Long id){
         Post post = getPost(id);

@@ -41,19 +41,19 @@ public class PostController {
     }
 
     @PostMapping
-    public ResponseEntity<PostDto> addPost(@RequestBody PostDto postDto){
+    public ResponseEntity<PostDto> addPost(@RequestBody final PostDto postDto){
         Post post = postService.addPost(Post.from(postDto));
         return new ResponseEntity<>(PostDto.from(post), HttpStatus.OK);
     }
 
-//    @PutMapping(value = "{id}")
-//    public ResponseEntity<AuthorDto> updateAuthor(@PathVariable final Long id, @RequestBody AuthorDto authorDto){
-//        Post post = postService.updateAuthor(id,Author.from(authorDto));
-//        return new ResponseEntity<>(AuthorDto.from(author), HttpStatus.OK);
-//    }
+    @PutMapping(value = "{id}")
+    public ResponseEntity<PostDto> updatePost(@PathVariable final Long id, @RequestBody PostDto postDto){
+        Post post = postService.editPost(id,Post.from(postDto));
+        return new ResponseEntity<>(PostDto.from(post), HttpStatus.OK);
+    }
 
     @DeleteMapping(value = "{id}")
-    public ResponseEntity<PostDto> deleteAuthor(@PathVariable final Long id){
+    public ResponseEntity<PostDto> deletePost(@PathVariable final Long id){
         Post post = postService.deletePost(id);
         return new ResponseEntity<>(PostDto.from(post), HttpStatus.OK);
     }

@@ -47,7 +47,7 @@ public class AuthorController {
 
     @PutMapping(value = "{id}")
     public ResponseEntity<AuthorDto> updateAuthor(@PathVariable final Long id, @RequestBody AuthorDto authorDto){
-        Author author = authorService.updateAuthor(id,Author.from(authorDto));
+        Author author = authorService.editAuthor(id,Author.from(authorDto));
         return new ResponseEntity<>(AuthorDto.from(author), HttpStatus.OK);
     }
 
@@ -57,5 +57,18 @@ public class AuthorController {
         return new ResponseEntity<>(AuthorDto.from(author), HttpStatus.OK);
     }
 
+    @PostMapping(value = "{authorId}/posts/{postId}/add")
+    public ResponseEntity<AuthorDto> addPostToAuthor(@PathVariable final Long authorId,
+                                                 @PathVariable final Long postId){
+        Author author = authorService.addPostToAuthor(authorId, postId);
+        return new ResponseEntity<>(AuthorDto.from(author), HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "{authorId}/posts/{postId}/remove")
+    public ResponseEntity<AuthorDto> removeItemFromCart(@PathVariable final Long authorId,
+                                                      @PathVariable final Long postId){
+        Author author = authorService.removePostFromAuthor(authorId, postId);
+        return new ResponseEntity<>(AuthorDto.from(author), HttpStatus.OK);
+    }
 
 }
