@@ -58,4 +58,19 @@ public class PostController {
         return new ResponseEntity<>(PostDto.from(post), HttpStatus.OK);
     }
 
+    @PostMapping(value = "{postId}/comments/{commentId}/add")
+    public ResponseEntity<PostDto> addCommentToPost(@PathVariable final Long postId,
+                                                     @PathVariable final Long commentId){
+        Post post = postService.addCommentToPost(postId, commentId);
+        return new ResponseEntity<>(PostDto.from(post), HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "{postId}/comments/{commentId}/remove")
+    public ResponseEntity<PostDto> removeCommentFromPost(@PathVariable final Long postId,
+                                                        @PathVariable final Long commentId){
+        Post post = postService.removeCommentFromPost(postId, commentId);
+        return new ResponseEntity<>(PostDto.from(post), HttpStatus.OK);
+    }
+
+
 }
