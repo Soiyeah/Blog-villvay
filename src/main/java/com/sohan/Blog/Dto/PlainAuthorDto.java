@@ -1,11 +1,7 @@
 package com.sohan.Blog.Dto;
 
 import com.sohan.Blog.Entities.Author;
-import com.sohan.Blog.Entities.Post;
 import lombok.Data;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 public class PlainAuthorDto {

@@ -1,17 +1,13 @@
 package com.sohan.Blog.Controllers;
 
-import com.sohan.Blog.Dto.AuthorDto;
 import com.sohan.Blog.Dto.PostDto;
-import com.sohan.Blog.Entities.Author;
 import com.sohan.Blog.Entities.Post;
-import com.sohan.Blog.Services.AuthorService;
 import com.sohan.Blog.Services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

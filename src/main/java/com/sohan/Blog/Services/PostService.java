@@ -1,9 +1,7 @@
 package com.sohan.Blog.Services;
 
-import com.sohan.Blog.Entities.Author;
 import com.sohan.Blog.Entities.Comment;
 import com.sohan.Blog.Entities.Post;
-import com.sohan.Blog.Repositories.AuthorRepository;
 import com.sohan.Blog.Repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

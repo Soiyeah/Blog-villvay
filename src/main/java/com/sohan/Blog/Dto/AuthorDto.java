@@ -2,7 +2,6 @@ package com.sohan.Blog.Dto;
 
 import com.sohan.Blog.Entities.Author;
 import com.sohan.Blog.Entities.Post;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

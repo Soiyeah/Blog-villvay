@@ -1,11 +1,8 @@
 package com.sohan.Blog.Controllers;
 
 import com.sohan.Blog.Dto.CommentDto;
-import com.sohan.Blog.Dto.PostDto;
 import com.sohan.Blog.Entities.Comment;
-import com.sohan.Blog.Entities.Post;
 import com.sohan.Blog.Services.CommentService;
-import com.sohan.Blog.Services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
